@@ -12,7 +12,7 @@ boarding:
     label: "Bez posilków"
   - key: breakfast
     label: "Tylko śniadanie"
-greace:
+greece:
   type: choice
   message: "Grecja - zwiedzanie + plaża"
 turkey:
