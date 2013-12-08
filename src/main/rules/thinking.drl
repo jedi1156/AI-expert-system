@@ -7,6 +7,21 @@ rule "Initialize Thinking"
 	when
 	then
 		Communication.askQuestion("seaside");
-		Communication.askQuestion("cost");
-		Communication.askQuestion("boarding");
+		//Communication.askQuestion("cost");
+		//Communication.askQuestion("boarding");
 end
+
+rule "Offer Kolobrzeg"
+	when
+		Fact(name == "seaside" && booleanValue == true);
+	then
+		Communication.askQuestion("kolobrzeg");
+end
+
+rule "Offer Zakopane"
+	when
+		Fact(name == "seaside" && booleanValue == false);
+	then
+		Communication.askQuestion("zakopane");
+end
+

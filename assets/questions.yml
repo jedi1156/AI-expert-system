@@ -12,3 +12,9 @@ boarding:
     label: "Bez posilków"
   - key: "breakfast"
     label: "Tylko śniadanie"
+kolobrzeg:
+  type: boolean
+  message: "Wybrać wspaniale wczasy w Kolobrzegu?"
+zakopane:
+  type: boolean
+  message: "Proponujemy zimowe szaleństwo w Zakopanem!"
