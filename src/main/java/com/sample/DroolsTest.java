@@ -30,7 +30,8 @@ public class DroolsTest {
 
     private static KnowledgeBase readKnowledgeBase() throws Exception {
         KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
-        kbuilder.add(ResourceFactory.newClassPathResource("Sample.drl"), ResourceType.DRL);
+        kbuilder.add(ResourceFactory.newClassPathResource("places.drl"), ResourceType.DRL);
+        kbuilder.add(ResourceFactory.newClassPathResource("thinking.drl"), ResourceType.DRL);
         KnowledgeBuilderErrors errors = kbuilder.getErrors();
         if (errors.size() > 0) {
             for (KnowledgeBuilderError error: errors) {
