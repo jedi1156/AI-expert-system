@@ -5,7 +5,6 @@ import com.agency.*;
 rule "Your First Rule"
     when
     then
-    	insert(new Place("places"));
 end
 
 rule "Your Second Rule"

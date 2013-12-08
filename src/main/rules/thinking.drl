@@ -44,11 +44,11 @@ rule "Initialize Thinking"
 		Communication.askQuestion("seaside");
 end
 
-rule "String"
+rule "YELL OUT STRING"
 	when
-		p : Place()
+		s : String()
 	then
-		Object[] options = { p.getName() };
+		Object[] options = { s };
 		JOptionPane.showMessageDialog(null, options, "Select single answer", JOptionPane.PLAIN_MESSAGE);
 end
 
