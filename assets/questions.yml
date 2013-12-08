@@ -37,7 +37,9 @@ long_flight:
 objazd:
   type: boolean
   message: "Czy ma to być wycieczka objazdowa?"
-
+sightseeing:
+  type: boolean
+  message: "Czy interesują Cię zabytki?"
 
 
 cost:
@@ -54,10 +56,10 @@ boarding:
 
 greece:
   type: choice
-  message: "Grecja - zwiedzanie + plaża"
+  message: "Propozycja: Grecja - starożytne zabytki + plaża"
 turkey:
   type: choice
-  message: "Turcja - zwiedzanie i byczenie się na plaży\nHotel 3*"
+  message: "A może: Turcja - zwiedzanie Stambułu i byczenie się na plaży\nHotel 3*"
 kolobrzeg:
   type: choice
   message: "Wybrać wspaniałe wczasy w Kolobrzegu?"

@@ -52,6 +52,23 @@ rule "Ask active"
 		Communication.askQuestion("active");
 end
 
+rule "Ask objazd"
+	when
+		Fact(name("active"), value(true))
+	then
+		Communication.askQuestion("objazd");
+end
+
+rule "Ask sightseeing"
+	when
+		(or
+			Fact(name("objazd"), value(true))
+			Fact(name("active"), value(false))
+		)
+	then
+		Communication.askQuestion("sightseeing");
+end
+
 rule "Ask exotic"
 	when
 	then

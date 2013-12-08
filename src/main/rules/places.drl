@@ -7,6 +7,8 @@ rule "Offer Greece"
     when
     	not Fact(name("poland"), value(true))
     	Fact(name("seaside"), value(true))
+    	Fact(name("sightseeing"), value(true))
+    	Fact(name("objazd"), value(true))
     then
     	Communication.askQuestion("greece");
 end
@@ -16,6 +18,7 @@ rule "Offer Turkey"
     when
     	not Fact(name("poland"), value(true))
     	Fact(name("seaside"), value(true))
+    	Fact(name("sightseeing"), value(true))
     then
     	Communication.askQuestion("turkey");
 end
@@ -102,10 +105,15 @@ rule "Offer Majowie"
 	salience 10000
 	when
 		not Fact(name("poland"), value(true))
-		Fact(name("exotic"), value(true))
-		Fact(name("jungle"), value(true))
-		Fact(name("mountains"), value(true))
 		Fact(name("south_america"), value(true))
+		(or
+			(and
+				Fact(name("exotic"), value(true))
+				Fact(name("jungle"), value(true))
+			)
+	    Fact(name("sightseeing"), value(true))
+		)
+		not Fact(name("mountains"), value(false))
 	then
 		Communication.askQuestion("majowie");
 end
@@ -135,10 +143,10 @@ rule "Offer poszukiwacze"
 		not Fact(name("poland"), value(true))
 		Fact(name("exotic"), value(true))
 		Fact(name("objazd"), value(true))
+    Fact(name("sightseeing"), value(true))
 	then
-		Communication.askQuestion("poszukiwacze");
+		Communication.askQuestion("majowie");
 end
-
 
 rule "Offer Baleal"
 	salience 10000
