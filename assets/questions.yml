@@ -6,7 +6,13 @@ exotic:
   message: "Czy bierzesz pod uwagę miejsca egzotyczne?"
 jungle:
   type: boolean
-  message: "Czy nie przeraża Cię kontakt z dżunglą?"
+  message: "Czy masz ochotę na kontakt z dżunglą?"
+south_america:
+  type: boolean
+  message: "Czy chcesz polecieć do Ameryki Południowej?"
+africa:
+  type: boolean
+  message: "Czy masz ochotę wybrać się do Afryki?"
 poland:
   type: boolean
   message: "Czy bierzesz pod uwagę tylko Polskę?"

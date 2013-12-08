@@ -1,5 +1,5 @@
 package rules
- 
+
 import com.sample.DroolsTest.*;
 import com.agency.*;
 
@@ -41,8 +41,27 @@ rule "Ask jungle"
 	when
 		Fact(name("active"), value(true))
 		Fact(name("exotic"), value(true))
+		not Fact(name("poland"), value(true))
 	then
 		Communication.askQuestion("jungle");
+end
+
+rule "Ask South America"
+	when
+		Fact(name("jungle"), value(true))
+		not Fact(name("africa"), value(true))
+		not Fact(name("poland"), value(true))
+	then
+		Communication.askQuestion("south_america");
+end
+
+rule "Ask Africa"
+	when
+		Fact(name("jungle"), value(true))
+		not Fact(name("south_america"), value(true))
+		not Fact(name("poland"), value(true))
+	then
+		Communication.askQuestion("africa");
 end
 
 rule "Ask poland"
