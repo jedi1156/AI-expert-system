@@ -6,12 +6,13 @@ import javax.swing.JOptionPane;
 
 public class Communication {
 	public static void showMessage(String messageName) {
-	    Map<String, String> data = Parser.parseMessages("assets/messages.yml");
-	    String message = data.get(messageName);
+	    String message = messageData.get(messageName);
 		JOptionPane.showMessageDialog(null, message);
 	}
 
 	public static void askQuestion(String questionName) {
 		
 	}
+	
+	static Map<String, String> messageData = Parser.parseMessages("assets/messages.yml");
 }
