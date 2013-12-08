@@ -4,8 +4,6 @@ import java.util.Map;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.ListSelectionModel;
 
