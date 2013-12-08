@@ -19,7 +19,7 @@ public class Communication {
 
 	public static void askQuestion(String questionName) {
 		Question question = questionData.get(questionName);
-		if (question.type.equals("boolean")) {
+		if (question.type.equals("boolean") || question.type.equals("choice")) {
 			askBooleanQuestion(question);
 		}
 		else if (question.type.equals("numeric")) {
@@ -31,8 +31,14 @@ public class Communication {
 	}
 	
 	static void askBooleanQuestion(Question question) {
-		int result = JOptionPane.showConfirmDialog(null, question.message, "Choose an answer", JOptionPane.YES_NO_OPTION);
-		KnowledgeSession.addFact(new Fact(question.name, result == JOptionPane.YES_OPTION));
+		int data = JOptionPane.showConfirmDialog(null, question.message, "Choose an answer", JOptionPane.YES_NO_OPTION);
+		boolean result = data == JOptionPane.YES_OPTION;
+		if(result && question.type.equals("choice")) {
+			KnowledgeSession.addFact(new Fact("chosen", true));
+		}
+		else {
+			KnowledgeSession.addFact(new Fact(question.name, result));
+		}
 	}
 	
 	static void askNumericQuestion(Question question) {

@@ -11,3 +11,10 @@ rule "Initialize Thinking"
 		//Communication.askQuestion("boarding");
 end
 
+rule "Place Chosen"
+	when
+		Fact(name("chosen"), value(true));
+	then
+		Communication.showMessage("chosen");
+		drools.halt();
+end

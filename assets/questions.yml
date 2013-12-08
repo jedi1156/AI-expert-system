@@ -1,26 +1,26 @@
 seaside:
-  type: "boolean"
+  type: boolean
   message: "Wakacje nad morzem?"
 cost:
-  type: "numeric"
+  type: numeric
   message: "Podaj maksymalną cenę?"
 boarding:
-  type: "multiple"
+  type: multiple
   message: "Jaki typ wyżywienia?"
   options:
-  - key: "no_meals"
+  - key: no_meals
     label: "Bez posilków"
-  - key: "breakfast"
+  - key: breakfast
     label: "Tylko śniadanie"
 greace:
-  type: "boolean"
+  type: choice
   message: "Grecja - zwiedzanie + plaża"
 turkey:
-  type: "boolean"
+  type: choice
   message: "Turcja - zwiedzanie i byczenie się na plaży\nHotel 3*"
 kolobrzeg:
-  type: boolean
+  type: choice
   message: "Wybrać wspaniałe wczasy w Kolobrzegu?"
 zakopane:
-  type: boolean
+  type: choice
   message: "Proponujemy zimowe szaleństwo w Zakopanem!"
