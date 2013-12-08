@@ -1,20 +1,47 @@
 package com.sample
  
-import com.sample.DroolsTest.Message;
+import com.sample.DroolsTest.*;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.swing.JFrame;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ListSelectionModel;
+import javax.swing.border.EmptyBorder;
  
-rule "Hello World"
-    when
-        m : Message( status == Message.HELLO, myMessage : message )
-    then
-        System.out.println( myMessage );
-        m.setMessage( "Goodbye cruel world" );
-        m.setStatus( Message.GOODBYE );
-        update( m );
+rule "Init"
+	when
+	then
+		ArrayList<String> answers = new ArrayList<String>();
+		answers.add("opt 1");
+		answers.add("opt 2");
+		answers.add("opt 3");
+		answers.add("opt 4");
+		JList list = new JList(answers.toArray());
+	    list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); 
+		Object[] options = {"a", "b", list};
+		JOptionPane.showMessageDialog(null, options, "Select single answer", JOptionPane.PLAIN_MESSAGE);
+		insert("" + list.getSelectedIndices()[0]);
 end
 
-rule "GoodBye"
-    when
-        Message( status == Message.GOODBYE, myMessage : message )
-    then
-        System.out.println( myMessage );
+rule "String"
+	when
+		s : String()
+	then
+		Object[] options = { s };
+		JOptionPane.showMessageDialog(null, options, "Select single answer", JOptionPane.PLAIN_MESSAGE);
 end
+
+		
