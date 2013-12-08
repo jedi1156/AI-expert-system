@@ -13,6 +13,7 @@ import org.drools.logger.KnowledgeRuntimeLoggerFactory;
 import org.drools.runtime.StatefulKnowledgeSession;
 
 import com.agency.Communication;
+import com.agency.KnowledgeSession;
 
 public class DroolsTest {
 
@@ -22,6 +23,7 @@ public class DroolsTest {
             KnowledgeBase kbase = readKnowledgeBase();
             StatefulKnowledgeSession ksession = kbase.newStatefulKnowledgeSession();
             KnowledgeRuntimeLogger logger = KnowledgeRuntimeLoggerFactory.newFileLogger(ksession, "test");
+            KnowledgeSession.setSession(ksession);
             Communication.showMessage("introduction");
             // go !
             ksession.fireAllRules();

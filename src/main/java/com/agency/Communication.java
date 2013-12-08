@@ -32,18 +32,17 @@ public class Communication {
 	
 	static void askBooleanQuestion(Question question) {
 		int result = JOptionPane.showConfirmDialog(null, question.message, "Choose an answer", JOptionPane.YES_NO_OPTION);
-		if (result == JOptionPane.YES_OPTION) {
-			// TODO: handle YES
-		}
-		else {
-			// TODO handle NO
-		}
+		KnowledgeSession.addFact(new Fact(question.name, result == JOptionPane.YES_OPTION));
 	}
 	
 	static void askNumericQuestion(Question question) {
 		String data = JOptionPane.showInputDialog(null, question.message);
-		int result = Integer.parseInt(data);
-		// TODO handle result
+		try {
+			int result = Integer.parseInt(data);
+			KnowledgeSession.addFact(new Fact(question.name, result));
+		} catch (java.lang.NumberFormatException t) {
+			askNumericQuestion(question);
+		}
 	}
 	
 	static void askMultipleQuestion(Question question) {
@@ -55,9 +54,14 @@ public class Communication {
 	    list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); 
 		Object[] options = {question.message, list};
 		JOptionPane.showMessageDialog(null, options, "Choose an answer", JOptionPane.PLAIN_MESSAGE);
-		int data = list.getSelectedIndices()[0];
-		Choice result = question.choices.get(data);
-		// TODO handle result
+		try {
+			int data = list.getSelectedIndices()[0];
+			Choice result = question.choices.get(data);
+			KnowledgeSession.addFact(new Fact(question.name, result.name));
+		}
+		catch (java.lang.ArrayIndexOutOfBoundsException t) {
+			askMultipleQuestion(question);
+		}
 	}
 	
 	static Map<String, String> messageData = Parser.parseMessages("assets/messages.yml");

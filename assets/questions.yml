@@ -18,3 +18,9 @@ greace:
 turkey:
   type: "boolean"
   message: "Turcja - zwiedzanie i byczenie się na plaży\nHotel 3*"
+kolobrzeg:
+  type: boolean
+  message: "Wybrać wspaniałe wczasy w Kolobrzegu?"
+zakopane:
+  type: boolean
+  message: "Proponujemy zimowe szaleństwo w Zakopanem!"
