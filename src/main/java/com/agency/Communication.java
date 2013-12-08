@@ -50,9 +50,14 @@ public class Communication {
 	    list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); 
 		Object[] options = {question.message, list};
 		JOptionPane.showMessageDialog(null, options, "Choose an answer", JOptionPane.PLAIN_MESSAGE);
-		int data = list.getSelectedIndices()[0];
-		Choice result = question.choices.get(data);
-		KnowledgeSession.addFact(new Fact(question.name, result.name));
+		try {
+			int data = list.getSelectedIndices()[0];
+			Choice result = question.choices.get(data);
+			KnowledgeSession.addFact(new Fact(question.name, result.name));
+		}
+		catch (java.lang.ArrayIndexOutOfBoundsException t) {
+			askMultipleQuestion(question);
+		}
 	}
 	
 	static Map<String, String> messageData = Parser.parseMessages("assets/messages.yml");
