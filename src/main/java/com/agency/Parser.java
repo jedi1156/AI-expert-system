@@ -35,6 +35,25 @@ public class Parser {
 		return result;
 	}
 	
+	public static Map<String, Question> parseQuestions(String filename) {
+		Yaml yaml = new Yaml();
+    	InputStream input;
+		Map<String, Question> result = new HashMap<String, Question>();
+		Map<Object, Object> data;
+		try {
+			input = new FileInputStream(new File(filename));
+			data = (Map<Object, Object>) yaml.load(input);
+			for (Map.Entry<Object, Object> entry : data.entrySet()) {
+	        	Map<String, Object> questionData = (Map<String, Object>) entry.getValue();
+	        	String key = (String)entry.getKey();
+	            result.put(key, new Question(key, (String)questionData.get("type"), (String)questionData.get("message")));
+	        }
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
 	
 	public static Map<String, String> parseMessages(String filename) {
 		Yaml yaml = new Yaml();

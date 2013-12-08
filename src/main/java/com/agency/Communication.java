@@ -11,8 +11,10 @@ public class Communication {
 	}
 
 	public static void askQuestion(String questionName) {
-		
+		Question question = questionData.get(questionName);
+		JOptionPane.showMessageDialog(null, question.message);
 	}
 	
 	static Map<String, String> messageData = Parser.parseMessages("assets/messages.yml");
+	static Map<String, Question> questionData = Parser.parseQuestions("assets/questions.yml");
 }

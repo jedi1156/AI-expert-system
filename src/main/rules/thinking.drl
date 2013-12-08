@@ -23,24 +23,25 @@ import javax.swing.border.EmptyBorder;
 
 import com.agency.*;
 
-rule "Init"
+rule "Initialize Thinking"
 	when
 	then
-		ArrayList<String> answers = new ArrayList<String>();
-		answers.add("opt 1");
-		answers.add("opt 2");
-		answers.add("opt 3");
-		answers.add("opt 4");
-		JList list = new JList(answers.toArray());
-	    list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); 
-		Object[] options = {"a", "b", list};
+		//ArrayList<String> answers = new ArrayList<String>();
+		//answers.add("opt 1");
+		//answers.add("opt 2");
+		//answers.add("opt 3");
+		//answers.add("opt 4");
+		//JList list = new JList(answers.toArray());
+	    //list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); 
+		//Object[] options = {"a", "b", list};
 		
-		ArrayList<Place> places = Parser.parsePlaces("assets/places.yml");
-		for(Place i : places) {
-			insert(i);
-		}
+		//ArrayList<Place> places = Parser.parsePlaces("assets/places.yml");
+		//for(Place i : places) {
+		//	insert(i);
+		//}
 		//JOptionPane.showMessageDialog(null, options, "Select single answer", JOptionPane.PLAIN_MESSAGE);
 		//insert("" + list.getSelectedIndices()[0]);
+		Communication.askQuestion("seaside");
 end
 
 rule "String"
