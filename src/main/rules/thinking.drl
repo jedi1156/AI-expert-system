@@ -5,22 +5,14 @@ import com.agency.*;
 
 rule "Ask seaside"
 	when
-		not
-		(and
-			Fact(name("mountains"), value(true))
-			Fact(name("poland"), value(true))
-		)
+		not	Fact(name("mountains"), value(true))
 	then
 		Communication.askQuestion("seaside");
 end
 
 rule "Ask mountains"
 	when
-		not
-		(and
-			Fact(name("seaside"), value(true))
-			Fact(name("poland"), value(true))
-		)
+		not Fact(name("seaside"), value(true))
 	then
 		Communication.askQuestion("mountains");
 end
