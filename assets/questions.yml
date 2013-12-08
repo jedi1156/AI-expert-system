@@ -12,3 +12,9 @@ boarding:
     label: "Bez posilków"
   - key: "breakfast"
     label: "Tylko śniadanie"
+greace:
+  type: "boolean"
+  message: "Grecja - zwiedzanie + plaża"
+turkey:
+  type: "boolean"
+  message: "Turcja - zwiedzanie i byczenie się na plaży\nHotel 3*"

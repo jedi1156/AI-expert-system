@@ -2,12 +2,14 @@ package rules
 
 import com.agency.*;
 
-rule "Your First Rule"
+rule "greace"
     when
     then
+    	Communication.askQuestion("greace");
 end
 
-rule "Your Second Rule"
+rule "turkey"
     when
     then
+    	Communication.askQuestion("turkey");
 end

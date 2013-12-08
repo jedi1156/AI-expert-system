@@ -4,14 +4,16 @@ import java.util.Map;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.ListSelectionModel;
 
 public class Communication {
+	public static String getMessage(String messageName) {
+		return messageData.get(messageName);
+	}
+	
 	public static void showMessage(String messageName) {
-	    String message = messageData.get(messageName);
+	    String message = getMessage(messageName);
 		JOptionPane.showMessageDialog(null, message);
 	}
 
