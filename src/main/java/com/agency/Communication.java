@@ -40,7 +40,11 @@ public class Communication {
 	
 	static void askNumericQuestion(Question question) {
 		String data = JOptionPane.showInputDialog(null, question.message);
-		int result = Integer.parseInt(data);
+		try {
+			int result = Integer.parseInt(data);
+		} catch (java.lang.NumberFormatException t) {
+			askNumericQuestion(question);
+		}
 		// TODO handle result
 	}
 	
