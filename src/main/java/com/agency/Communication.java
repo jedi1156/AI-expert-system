@@ -28,12 +28,7 @@ public class Communication {
 	
 	static void askBooleanQuestion(Question question) {
 		int result = JOptionPane.showConfirmDialog(null, question.message, "Choose an answer", JOptionPane.YES_NO_OPTION);
-		if (result == JOptionPane.YES_OPTION) {
-			// TODO: handle YES
-		}
-		else {
-			// TODO handle NO
-		}
+		KnowledgeSession.addFact(new Fact(question.name, result == JOptionPane.YES_OPTION));
 	}
 	
 	static void askNumericQuestion(Question question) {
@@ -57,7 +52,7 @@ public class Communication {
 		JOptionPane.showMessageDialog(null, options, "Choose an answer", JOptionPane.PLAIN_MESSAGE);
 		int data = list.getSelectedIndices()[0];
 		Choice result = question.choices.get(data);
-		// TODO handle result
+		KnowledgeSession.addFact(new Fact(question.name, result.name));
 	}
 	
 	static Map<String, String> messageData = Parser.parseMessages("assets/messages.yml");
