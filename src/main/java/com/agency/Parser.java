@@ -24,7 +24,14 @@ public class Parser {
 			for (Map.Entry<Object, Object> entry : data.entrySet()) {
 	        	Map<String, Object> questionData = (Map<String, Object>) entry.getValue();
 	        	String key = (String)entry.getKey();
-	            result.put(key, new Question(key, (String)questionData.get("type"), (String)questionData.get("message")));
+	        	ArrayList<Choice> choices = new ArrayList<Choice>();
+	        	String type = (String)questionData.get("type");
+	        	if (type.equals("multiple")) {
+	        		for (Map<Object, Object> choiceData : (ArrayList<Map<Object, Object>>)questionData.get("options")) {
+	        			choices.add(new Choice((String)choiceData.get("key"), (String)choiceData.get("label")));
+	        		}
+	        	}
+	            result.put(key, new Question(key, type, (String)questionData.get("message"), choices));
 	        }
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

@@ -46,15 +46,16 @@ public class Communication {
 	
 	static void askMultipleQuestion(Question question) {
 		ArrayList<String> answers = new ArrayList<String>();
-		answers.add("opt 1");
-		answers.add("opt 2");
-		answers.add("opt 3");
-		answers.add("opt 4");
+		for (Choice choice : question.choices) {
+			answers.add(choice.message);
+		}
 		JList list = new JList(answers.toArray());
 	    list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); 
 		Object[] options = {question.message, list};
 		JOptionPane.showMessageDialog(null, options, "Choose an answer", JOptionPane.PLAIN_MESSAGE);
-		int result = list.getSelectedIndices()[0];
+		int data = list.getSelectedIndices()[0];
+		Choice result = question.choices.get(data);
+		// TODO handle result
 	}
 	
 	static Map<String, String> messageData = Parser.parseMessages("assets/messages.yml");
