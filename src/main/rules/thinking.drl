@@ -18,3 +18,11 @@ rule "Place Chosen"
 		Communication.showMessage("chosen");
 		drools.halt();
 end
+
+rule "No place Chosen"
+	salience -1
+	when
+	then
+		Communication.showMessage("not_chosen");
+		drools.halt();
+end		
