@@ -12,6 +12,8 @@ import org.drools.logger.KnowledgeRuntimeLogger;
 import org.drools.logger.KnowledgeRuntimeLoggerFactory;
 import org.drools.runtime.StatefulKnowledgeSession;
 
+import javax.swing.JOptionPane;
+
 public class DroolsTest {
 
     public static final void main(String[] args) {
@@ -20,6 +22,7 @@ public class DroolsTest {
             KnowledgeBase kbase = readKnowledgeBase();
             StatefulKnowledgeSession ksession = kbase.newStatefulKnowledgeSession();
             KnowledgeRuntimeLogger logger = KnowledgeRuntimeLoggerFactory.newFileLogger(ksession, "test");
+            JOptionPane.showMessageDialog(null, "System ekspercki - biuro podróży.\nMichal Zajączkowski\nTomasz Pewinski 106638");
             // go !
             ksession.fireAllRules();
             logger.close();
