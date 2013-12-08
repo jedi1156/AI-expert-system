@@ -1,6 +1,36 @@
+active:
+  type: boolean
+  message: "Czy interesuje Cię aktywny wypoczynek?"
+exotic:
+  type: boolean
+  message: "Czy bierzesz pod uwagę miejsca egzotyczne?"
+jungle:
+  type: boolean
+  message: "Czy nie przeraża Cię kontakt z dżunglą?"
+poland:
+  type: boolean
+  message: "Czy bierzesz pod uwagę tylko Polskę?"
 seaside:
   type: boolean
   message: "Wakacje nad morzem?"
+surfing:
+  type: boolean
+  message: "Czy chcesz posurfować na wakacjach?"
+mountains:
+  type: boolean
+  message: "Wakacje w górach?"
+skiing:
+  type: boolean
+  message: "Masz ochotę na narty?"
+climbing:
+  type: boolean
+  message: "Co powiesz na wspinaczkę?"
+long_flight:
+  type: boolean
+  message: "Czy długi lot wchodzi w rachubę?"
+
+
+
 cost:
   type: numeric
   message: "Podaj maksymalną cenę?"
@@ -12,6 +42,7 @@ boarding:
     label: "Bez posilków"
   - key: breakfast
     label: "Tylko śniadanie"
+
 greece:
   type: choice
   message: "Grecja - zwiedzanie + plaża"
@@ -21,6 +52,30 @@ turkey:
 kolobrzeg:
   type: choice
   message: "Wybrać wspaniałe wczasy w Kolobrzegu?"
+slowacja:
+  type: choice
+  message: "Proponujemy spokojną wyprawę do gorących źródeł na Słowacji!"
 zakopane:
   type: choice
   message: "Proponujemy zimowe szaleństwo w Zakopanem!"
+australia:
+  type: choice
+  message: "Proponujemy surfowanie w Australii!"
+chile_argentyna:
+  type: choice
+  message: "Masz ochotę na wycieczkę po Chile i Argentynie?"
+alpy:
+  type: choice
+  message: "Czy chcesz się wybrać poszusować w Alpach Austriackich?"
+narciarstwo_plaza_andy:
+  type: choice
+  message: "Co powiesz na tydzień narciarstwa w Andach, a potem wylegiwanie się na Chilijskiej plaży?"
+himalaje:
+  type: choice
+  message: "Oferujemy wyprawę na Mount Everest, co Ty na to?"
+bieszczady:
+  type: choice
+  message: "Oferujemy wyprawę po lasach Bieszczadzkich?"
+majowie:
+  type: choice
+  message: "Co powiesz na tydzień wśród Majów?"

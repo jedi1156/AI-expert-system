@@ -3,29 +3,132 @@ package rules
 import com.agency.*;
 
 rule "Offer Greece"
+	salience 10000
     when
-    	Fact(name("seaside"), value(true));
+    	not Fact(name("poland"), value(true))
+    	Fact(name("seaside"), value(true))
     then
     	Communication.askQuestion("greece");
 end
 
 rule "Offer Turkey"
+	salience 10000
     when
-    	Fact(name("seaside"), value(true));
+    	not Fact(name("poland"), value(true))
+    	Fact(name("seaside"), value(true))
     then
     	Communication.askQuestion("turkey");
 end
 
+rule "Offer Australia"
+	salience 10000
+    when
+    	not Fact(name("poland"), value(true))
+    	Fact(name("long_flight"), value(true))
+    	Fact(name("surfing"), value(true))
+    then
+    	Communication.askQuestion("australia");
+end
+
 rule "Offer Kolobrzeg"
+	salience 10000
 	when
-		Fact(name("seaside"), value(true));
+		Fact(name("seaside"), value(true))
 	then
 		Communication.askQuestion("kolobrzeg");
 end
 
 rule "Offer Zakopane"
+	salience 10000
 	when
-		Fact(name("seaside"), value(false));
+		Fact(name("skiing"), value(true))
+		Fact(name("mountains"), value(true))
+		Fact(name("seaside"), value(false))
 	then
 		Communication.askQuestion("zakopane");
+end
+
+rule "Offer Bieszczady"
+	salience 10000
+	when
+		Fact(name("mountains"), value(true))
+		Fact(name("seaside"), value(false))
+	then
+		Communication.askQuestion("bieszczady");
+end
+
+rule "Offer Slowacja"
+	salience 10000
+	when
+		not Fact(name("poland"), value(true))
+		Fact(name("active"), value(false))
+		Fact(name("mountains"), value(true))
+		not Fact(name("seaside"), value(true))
+	then
+		Communication.askQuestion("slowacja");
+end
+
+rule "Offer Chile-Argentyna"
+	salience 10000
+	when
+		not Fact(name("poland"), value(true))
+		not Fact(name("south_america"), value(false))
+		Fact(name("exotic"), value(true))
+		(or
+			(and
+				Fact(name("jungle"), value(true))
+				Fact(name("south_america"), value(true))
+			)
+			(and
+				Fact(name("mountains"), value(true))
+				Fact(name("seaside"), value(true))
+			)
+		)
+	then
+		Communication.askQuestion("chile_argentyna");
+end
+
+rule "Offer narciarstwo i plaza w Chile"
+	salience 10000
+	when
+		not Fact(name("poland"), value(true))
+		Fact(name("exotic"), value(true))
+		not Fact(name("south_america"), value(false))
+		Fact(name("active"), value(true))
+		Fact(name("mountains"), value(true))
+		Fact(name("seaside"), value(true))
+	then
+		Communication.askQuestion("narciarstwo_plaza_andy");
+end
+
+rule "Offer Majowie"
+	salience 10000
+	when
+		not Fact(name("poland"), value(true))
+		Fact(name("exotic"), value(true))
+		Fact(name("jungle"), value(true))
+		Fact(name("mountains"), value(true))
+		Fact(name("south_america"), value(true))
+	then
+		Communication.askQuestion("majowie");
+end
+
+rule "Offer wspinaczka w Himalajach"
+	salience 10000
+	when
+		not Fact(name("poland"), value(true))
+		Fact(name("climbing"), value(true))
+	then
+		Communication.askQuestion("himalaje");
+end
+
+rule "Offer Alpy"
+	salience 10000
+	when
+		not Fact(name("poland"), value(true))
+		Fact(name("skiing"), value(true))
+		Fact(name("mountains"), value(true))
+		Fact(name("seaside"), value(false))
+	then
+		Communication.askQuestion("alpy");
 end

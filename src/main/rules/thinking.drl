@@ -3,17 +3,96 @@ package rules
 import com.sample.DroolsTest.*;
 import com.agency.*;
 
-rule "Initialize Thinking"
+rule "Ask seaside"
 	when
+		not
+		(and
+			Fact(name("mountains"), value(true))
+			Fact(name("poland"), value(true))
+		)
 	then
 		Communication.askQuestion("seaside");
-		//Communication.askQuestion("cost");
-		//Communication.askQuestion("boarding");
+end
+
+rule "Ask mountains"
+	when
+		not
+		(and
+			Fact(name("seaside"), value(true))
+			Fact(name("poland"), value(true))
+		)
+	then
+		Communication.askQuestion("mountains");
+end
+
+rule "Ask active"
+	when
+	then
+		Communication.askQuestion("active");
+end
+
+rule "Ask exotic"
+	when
+	then
+		Communication.askQuestion("exotic");
+end
+
+rule "Ask jungle"
+	when
+		Fact(name("active"), value(true))
+		Fact(name("exotic"), value(true))
+	then
+		Communication.askQuestion("jungle");
+end
+
+rule "Ask poland"
+	when
+		Fact(name("exotic"), value(false))
+	then
+		Communication.askQuestion("poland");
+end
+
+rule "Ask surfing"
+	salience 1
+	when
+		Fact(name("active"), value(true))
+		Fact(name("seaside"), value(true))
+	then
+		Communication.askQuestion("surfing");
+end
+
+
+rule "Ask climbing"
+	salience 1
+	when
+		Fact(name("active"), value(true))
+		Fact(name("mountains"), value(true))
+		Fact(name("seaside"), value(false))
+	then
+		Communication.askQuestion("climbing");
+end
+
+rule "Ask skiing"
+	salience 1
+	when
+		Fact(name("active"), value(true))
+		Fact(name("mountains"), value(true))
+	then
+		Communication.askQuestion("skiing");
+end
+
+
+rule "Ask long_flight"
+	when
+		not Fact(name("poland"), value(true))
+	then
+		Communication.askQuestion("long_flight");
 end
 
 rule "Place Chosen"
+	salience 20000
 	when
-		Fact(name("chosen"), value(true));
+		Fact(name("chosen"), value(true))
 	then
 		Communication.showMessage("chosen");
 		drools.halt();
@@ -25,4 +104,4 @@ rule "No place Chosen"
 	then
 		Communication.showMessage("not_chosen");
 		drools.halt();
-end		
+end
