@@ -2,7 +2,7 @@ seaside:
   type: "boolean"
   message: "Wakacje nad morzem?"
 cost:
-  type: "integer"
+  type: "numeric"
   message: "Podaj maksymalną cenę?"
 boarding:
   type: "multiple"

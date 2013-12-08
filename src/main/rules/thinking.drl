@@ -42,6 +42,7 @@ rule "Initialize Thinking"
 		//JOptionPane.showMessageDialog(null, options, "Select single answer", JOptionPane.PLAIN_MESSAGE);
 		//insert("" + list.getSelectedIndices()[0]);
 		Communication.askQuestion("seaside");
+		Communication.askQuestion("cost");
 end
 
 rule "YELL OUT STRING"
