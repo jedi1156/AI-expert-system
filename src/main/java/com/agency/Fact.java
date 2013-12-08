@@ -25,19 +25,19 @@ public class Fact {
 		this.intValue = intValue;
 	}
 	
-	public String getName() {
-		return name;
+	public boolean name(String value) {
+		return name.equals(value);
 	}
 	
-	public boolean getBooleanValue() {
-		return booleanValue;
+	public boolean value(boolean value) {
+		return booleanValue == value;
 	}
 	
-	public String getStringValue() {
-		return stringValue;
+	public boolean value(String value) {
+		return value.equals(stringValue);
 	}
 	
-	public int getIntValue() {
-		return intValue;
+	public boolean value(int value) {
+		return value == intValue;
 	}
 }
