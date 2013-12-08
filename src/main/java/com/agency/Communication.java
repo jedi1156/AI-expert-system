@@ -35,10 +35,10 @@ public class Communication {
 		String data = JOptionPane.showInputDialog(null, question.message);
 		try {
 			int result = Integer.parseInt(data);
+			KnowledgeSession.addFact(new Fact(question.name, result));
 		} catch (java.lang.NumberFormatException t) {
 			askNumericQuestion(question);
 		}
-		// TODO handle result
 	}
 	
 	static void askMultipleQuestion(Question question) {

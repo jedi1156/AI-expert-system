@@ -20,6 +20,11 @@ public class Fact {
 		this.stringValue = stringValue;
 	}
 	
+	Fact(String name, int intValue) {
+		this(name);
+		this.intValue = intValue;
+	}
+	
 	public String getName() {
 		return name;
 	}
