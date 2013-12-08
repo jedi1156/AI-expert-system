@@ -40,6 +40,9 @@ objazd:
 sightseeing:
   type: boolean
   message: "Czy interesują Cię zabytki?"
+max_price:
+  type: numeric
+  message: "Ile maksymalnie chcesz wydać?"
 
 
 cost:

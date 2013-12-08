@@ -75,6 +75,12 @@ rule "Ask exotic"
 		Communication.askQuestion("exotic");
 end
 
+rule "Ask max price"
+	when
+	then
+		Communication.askQuestion("max_price");
+end
+
 rule "Ask jungle"
 	when
 		Fact(name("active"), value(true))
