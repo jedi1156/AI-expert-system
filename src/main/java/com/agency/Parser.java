@@ -1,6 +1,7 @@
 package com.agency;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.yaml.snakeyaml.*;
 
@@ -32,5 +33,19 @@ public class Parser {
 		}
 		
 		return result;
+	}
+	
+	
+	public static Map<String, String> parseMessages(String filename) {
+		Yaml yaml = new Yaml();
+    	InputStream input;
+    	Map<String, String> data = new HashMap<String, String>();
+		try {
+			input = new FileInputStream(new File(filename));
+	        data = (Map<String, String>) yaml.load(input);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+        return data;
 	}
 }

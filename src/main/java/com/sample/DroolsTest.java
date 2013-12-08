@@ -12,7 +12,7 @@ import org.drools.logger.KnowledgeRuntimeLogger;
 import org.drools.logger.KnowledgeRuntimeLoggerFactory;
 import org.drools.runtime.StatefulKnowledgeSession;
 
-import javax.swing.JOptionPane;
+import com.agency.Communication;
 
 public class DroolsTest {
 
@@ -22,7 +22,7 @@ public class DroolsTest {
             KnowledgeBase kbase = readKnowledgeBase();
             StatefulKnowledgeSession ksession = kbase.newStatefulKnowledgeSession();
             KnowledgeRuntimeLogger logger = KnowledgeRuntimeLoggerFactory.newFileLogger(ksession, "test");
-            JOptionPane.showMessageDialog(null, "System ekspercki - biuro podróży.\nMichal Zajączkowski 106655\nTomasz Pewinski 106638");
+            Communication.showMessage("introduction");
             // go !
             ksession.fireAllRules();
             logger.close();
