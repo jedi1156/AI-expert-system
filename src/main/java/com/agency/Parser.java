@@ -9,7 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Map;
-// "assets/places.yml"
+
 public class Parser {
 	
 	public static ArrayList<Place> parsePlaces(String filename) {
@@ -22,8 +22,10 @@ public class Parser {
 	        data = (Map<Object, Object>) yaml.load(input);
 	        
 	        for (Map.Entry<Object, Object> entry : data.entrySet()) {
-	            System.out.println(entry.getKey() + "/" + entry.getValue());
-	            result.add(new Place((String)((Map<Object, Object>) entry.getValue()).get("name")));
+	        	Map<String, Object> place_map = (Map<String, Object>) entry.getValue();
+	            result.add(new Place((String)(place_map).get("name")));
+	            
+	            System.out.println((Boolean)place_map.get("sea"));
 	        }
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

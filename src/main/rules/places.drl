@@ -1,0 +1,11 @@
+package rules
+
+rule "Your First Rule"
+    when
+    then
+end
+
+rule "Your Second Rule"
+    when
+    then
+end
