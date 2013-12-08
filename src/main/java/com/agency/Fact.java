@@ -4,6 +4,7 @@ public class Fact {
 	private String name;
 	private boolean booleanValue;
 	private String stringValue;
+	private int intValue;
 	
 	Fact(String name) {
 		this.name = name;
@@ -25,5 +26,13 @@ public class Fact {
 	
 	public boolean getBooleanValue() {
 		return booleanValue;
+	}
+	
+	public String getStringValue() {
+		return stringValue;
+	}
+	
+	public int getIntValue() {
+		return intValue;
 	}
 }
