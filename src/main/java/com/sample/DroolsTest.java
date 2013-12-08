@@ -11,10 +11,8 @@ import org.drools.io.ResourceFactory;
 import org.drools.logger.KnowledgeRuntimeLogger;
 import org.drools.logger.KnowledgeRuntimeLoggerFactory;
 import org.drools.runtime.StatefulKnowledgeSession;
+import org.yaml.snakeyaml.*;
 
-/**
- * This is a sample class to launch a rule.
- */
 public class DroolsTest {
 
     public static final void main(String[] args) {
@@ -45,4 +43,5 @@ public class DroolsTest {
         kbase.addKnowledgePackages(kbuilder.getKnowledgePackages());
         return kbase;
     }
+
 }

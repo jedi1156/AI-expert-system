@@ -20,7 +20,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
- 
+
+import com.agency.*;
+
 rule "Init"
 	when
 	then
@@ -32,8 +34,13 @@ rule "Init"
 		JList list = new JList(answers.toArray());
 	    list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); 
 		Object[] options = {"a", "b", list};
-		JOptionPane.showMessageDialog(null, options, "Select single answer", JOptionPane.PLAIN_MESSAGE);
-		insert("" + list.getSelectedIndices()[0]);
+		
+		ArrayList<Place> places = Parser.parsePlaces("assets/places.yml");
+		for(Place i : places) {
+			insert(i.getName());
+		}
+		//JOptionPane.showMessageDialog(null, options, "Select single answer", JOptionPane.PLAIN_MESSAGE);
+		//insert("" + list.getSelectedIndices()[0]);
 end
 
 rule "String"
