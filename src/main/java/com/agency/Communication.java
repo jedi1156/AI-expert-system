@@ -3,6 +3,8 @@ package com.agency;
 import java.util.Map;
 
 import javax.swing.JOptionPane;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 
 public class Communication {
 	public static void showMessage(String messageName) {
@@ -12,7 +14,7 @@ public class Communication {
 
 	public static void askQuestion(String questionName) {
 		Question question = questionData.get(questionName);
-		JOptionPane.showMessageDialog(null, question.message);
+		int result = JOptionPane.showConfirmDialog(null, question.message, "Choose an answer", JOptionPane.YES_NO_OPTION);
 	}
 	
 	static Map<String, String> messageData = Parser.parseMessages("assets/messages.yml");
