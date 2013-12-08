@@ -34,6 +34,9 @@ climbing:
 long_flight:
   type: boolean
   message: "Czy długi lot wchodzi w rachubę?"
+objazd:
+  type: boolean
+  message: "Czy ma to być wycieczka objazdowa?"
 
 
 
@@ -85,3 +88,12 @@ bieszczady:
 majowie:
   type: choice
   message: "Co powiesz na tydzień wśród Majów?"
+poszukiwacze:
+  type: choice
+  message: "Oferujemy wycieczkę 'Tajlandia i Kambodża - poszukiwacze zaginionych świątyń'! Co Ty na to?"
+baleal:
+  type: choice
+  message: "Proponujemy Baleal w Portugalii, idealne miejsce do sufrowania!"
+taghazout:
+  type: choice
+  message: "Proponujemy Taghazout w Maroku, w sam raz dla surferów!"

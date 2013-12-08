@@ -132,3 +132,35 @@ rule "Offer Alpy"
 	then
 		Communication.askQuestion("alpy");
 end
+
+rule "Offer poszukiwacze"
+	salience 10000
+	when
+		not Fact(name("poland"), value(true))
+		Fact(name("exotic"), value(true))
+		Fact(name("objazd"), value(true))
+	then
+		Communication.askQuestion("poszukiwacze");
+end
+
+
+rule "Offer Baleal"
+	salience 10000
+	when
+		not Fact(name("poland"), value(true))
+		Fact(name("surfing"), value(true))
+		Fact(name("long_flight"), value(false))
+	then
+		Communication.askQuestion("baleal");
+end
+
+rule "Offer Taghazout"
+	salience 10000
+	when
+		not Fact(name("poland"), value(true))
+		Fact(name("surfing"), value(true))
+		Fact(name("long_flight"), value(false))
+	then
+		Communication.askQuestion("taghazout");
+end
+

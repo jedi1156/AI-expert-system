@@ -3,6 +3,27 @@ package rules
 import com.sample.DroolsTest.*;
 import com.agency.*;
 
+
+
+rule "Place Chosen"
+	salience 20000
+	when
+		Fact(name("chosen"), value(true))
+	then
+		Communication.showMessage("chosen");
+		drools.halt();
+end
+
+rule "No place Chosen"
+	salience -1
+	when
+	then
+		Communication.showMessage("not_chosen");
+		drools.halt();
+end
+
+
+
 rule "Ask seaside"
 	when
 		not
@@ -100,7 +121,6 @@ rule "Ask skiing"
 		Communication.askQuestion("skiing");
 end
 
-
 rule "Ask long_flight"
 	when
 		not Fact(name("poland"), value(true))
@@ -108,19 +128,5 @@ rule "Ask long_flight"
 		Communication.askQuestion("long_flight");
 end
 
-rule "Place Chosen"
-	salience 20000
-	when
-		Fact(name("chosen"), value(true))
-	then
-		Communication.showMessage("chosen");
-		drools.halt();
-end
 
-rule "No place Chosen"
-	salience -1
-	when
-	then
-		Communication.showMessage("not_chosen");
-		drools.halt();
-end
+
