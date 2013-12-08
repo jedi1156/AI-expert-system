@@ -18,13 +18,13 @@ poland:
   message: "Czy bierzesz pod uwagę tylko Polskę?"
 seaside:
   type: boolean
-  message: "Wakacje nad morzem?"
+  message: "Czy wakacje nad morzem wchodzą w grę?"
 surfing:
   type: boolean
   message: "Czy chcesz posurfować na wakacjach?"
 mountains:
   type: boolean
-  message: "Wakacje w górach?"
+  message: "Cze wakacje w górach wchodzą w grę?"
 skiing:
   type: boolean
   message: "Masz ochotę na narty?"
