@@ -2,14 +2,30 @@ package rules
 
 import com.agency.*;
 
-rule "greace"
+rule "Offer Greace"
     when
+    	Fact(name("seaside"), value(true));
     then
     	Communication.askQuestion("greace");
 end
 
-rule "turkey"
+rule "Offer Turkey"
     when
+    	Fact(name("seaside"), value(true));
     then
     	Communication.askQuestion("turkey");
+end
+
+rule "Offer Kolobrzeg"
+	when
+		Fact(name("seaside"), value(true));
+	then
+		Communication.askQuestion("kolobrzeg");
+end
+
+rule "Offer Zakopane"
+	when
+		Fact(name("seaside"), value(false));
+	then
+		Communication.askQuestion("zakopane");
 end
