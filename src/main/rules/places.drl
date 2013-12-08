@@ -43,7 +43,6 @@ rule "Offer Zakopane"
 	when
 		Fact(name("skiing"), value(true))
 		Fact(name("mountains"), value(true))
-		Fact(name("seaside"), value(false))
 	then
 		Communication.askQuestion("zakopane");
 end
@@ -52,7 +51,6 @@ rule "Offer Bieszczady"
 	salience 10000
 	when
 		Fact(name("mountains"), value(true))
-		Fact(name("seaside"), value(false))
 	then
 		Communication.askQuestion("bieszczady");
 end
@@ -63,7 +61,6 @@ rule "Offer Slowacja"
 		not Fact(name("poland"), value(true))
 		Fact(name("active"), value(false))
 		Fact(name("mountains"), value(true))
-		not Fact(name("seaside"), value(true))
 	then
 		Communication.askQuestion("slowacja");
 end
@@ -128,7 +125,6 @@ rule "Offer Alpy"
 		not Fact(name("poland"), value(true))
 		Fact(name("skiing"), value(true))
 		Fact(name("mountains"), value(true))
-		Fact(name("seaside"), value(false))
 	then
 		Communication.askQuestion("alpy");
 end

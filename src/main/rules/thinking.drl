@@ -107,7 +107,6 @@ rule "Ask climbing"
 	when
 		Fact(name("active"), value(true))
 		Fact(name("mountains"), value(true))
-		Fact(name("seaside"), value(false))
 	then
 		Communication.askQuestion("climbing");
 end
