@@ -10,6 +10,7 @@ rule "Offer Greece"
     	Fact(name("sightseeing"), value(true))
     	Fact(name("objazd"), value(true))
 			not Fact(name("fear_earthquakes"), value(true))
+			not Fact(name("exotic"), value(true))
     then
     	Communication.askQuestion("greece");
 end
@@ -21,6 +22,7 @@ rule "Offer Turkey"
     	Fact(name("seaside"), value(true))
     	Fact(name("sightseeing"), value(true))
 			not Fact(name("fear_earthquakes"), value(true))
+			not Fact(name("jungle"), value(true))
     then
     	Communication.askQuestion("turkey");
 end
@@ -31,6 +33,8 @@ rule "Offer Australia"
     	not Fact(name("poland"), value(true))
     	Fact(name("long_flight"), value(true))
     	Fact(name("surfing"), value(true))
+    	not Fact(name("objazd"), value(true))
+			not Fact(name("jungle"), value(true))
     then
     	Communication.askQuestion("australia");
 end
@@ -39,6 +43,8 @@ rule "Offer Kolobrzeg"
 	salience 10000
 	when
 		Fact(name("seaside"), value(true))
+		not Fact(name("objazd"), value(true))
+		not Fact(name("exotic"), value(true))
 	then
 		Communication.askQuestion("kolobrzeg");
 end
@@ -48,6 +54,8 @@ rule "Offer Zakopane"
 	when
 		Fact(name("skiing"), value(true))
 		Fact(name("mountains"), value(true))
+		not Fact(name("objazd"), value(true))
+		not Fact(name("exotic"), value(true))
 	then
 		Communication.askQuestion("zakopane");
 end
@@ -56,6 +64,8 @@ rule "Offer Bieszczady"
 	salience 10000
 	when
 		Fact(name("mountains"), value(true))
+		not Fact(name("exotic"), value(true))
+		not Fact(name("objazd"), value(true))
 	then
 		Communication.askQuestion("bieszczady");
 end
@@ -66,6 +76,7 @@ rule "Offer Slowacja"
 		not Fact(name("poland"), value(true))
 		Fact(name("active"), value(false))
 		Fact(name("mountains"), value(true))
+		not Fact(name("exotic"), value(true))
 	then
 		Communication.askQuestion("slowacja");
 end
@@ -128,6 +139,7 @@ rule "Offer wspinaczka w Himalajach"
 	when
 		not Fact(name("poland"), value(true))
 		Fact(name("climbing"), value(true))
+		not Fact(name("jungle"), value(true))
 	then
 		Communication.askQuestion("himalaje");
 end
@@ -138,6 +150,7 @@ rule "Offer Alpy"
 		not Fact(name("poland"), value(true))
 		Fact(name("skiing"), value(true))
 		Fact(name("mountains"), value(true))
+		not Fact(name("exotic"), value(true))
 	then
 		Communication.askQuestion("alpy");
 end
@@ -157,9 +170,11 @@ end
 rule "Offer Baleal"
 	salience 10000
 	when
+		Fact(name("max_price"), intValueGreaterThan(1500))
 		not Fact(name("poland"), value(true))
 		Fact(name("surfing"), value(true))
 		Fact(name("long_flight"), value(false))
+		not Fact(name("jungle"), value(true))
 	then
 		Communication.askQuestion("baleal");
 end
@@ -167,17 +182,23 @@ end
 rule "Offer Taghazout"
 	salience 10000
 	when
+		Fact(name("max_price"), intValueGreaterThan(1500))
 		not Fact(name("poland"), value(true))
 		Fact(name("surfing"), value(true))
 		Fact(name("long_flight"), value(false))
+		not Fact(name("jungle"), value(true))
 	then
 		Communication.askQuestion("taghazout");
 end
 
-
-
-
-
+rule "Offer weekend w Poznaniu"
+	when
+		Fact(name("max_price"), intValueGreaterThan(200))
+		Fact(name("max_price"), intValueLessThan(1000))
+		not Fact(name("exotic"), value(true))
+	then
+		Communication.askQuestion("poznan");
+end
 
 rule "Offer Chiny"
 	salience 10000
@@ -186,6 +207,7 @@ rule "Offer Chiny"
 		Fact(name("orient"), value(true))
 		Fact(name("long_flight"), value(true))
   	Fact(name("sightseeing"), value(true))
+		not Fact(name("jungle"), value(true))
 	then
 		Communication.askQuestion("chiny");
 end
@@ -196,6 +218,7 @@ rule "Offer Nippon"
 		Fact(name("orient"), value(true))
 		Fact(name("long_flight"), value(true))
   	Fact(name("sightseeing"), value(true))
+		not Fact(name("jungle"), value(true))
 	then
 		Communication.askQuestion("nippon");
 end
@@ -204,9 +227,88 @@ rule "Offer Egipt"
 	salience 10000
 	when
 		not Fact(name("poland"), value(true))
+		Fact(name("max_price"), intValueGreaterThan(1200))
   	Fact(name("active"), value(false))
   	Fact(name("seaside"), value(true))
   	Fact(name("sightseeing"), value(true))
+		not Fact(name("jungle"), value(true))
 	then
 		Communication.askQuestion("egipt");
+end
+
+rule "Offer Madryt"
+	salience 10000
+	when
+		not Fact(name("poland"), value(true))
+		Fact(name("max_price"), intValueGreaterThan(1200))
+		Fact(name("sightseeing"), value(true))
+		not Fact(name("exotic"), value(true))
+	then
+		Communication.askQuestion("madryt");
+end
+
+rule "Offer Marbella"
+	salience 10000
+	when
+		not Fact(name("poland"), value(true))
+		Fact(name("max_price"), intValueGreaterThan(2000))
+		Fact(name("water_skiing"), value(true))
+		not Fact(name("jungle"), value(true))
+	then
+		Communication.askQuestion("marbella");
+end
+
+rule "Offer Szczecin"
+	salience 10000
+	when
+		not Fact(name("sightseeing"), value(true))
+		not Fact(name("objazd"), value(true))
+		Fact(name("water_skiing"), value(true))
+		not Fact(name("exotic"), value(true))
+	then
+		Communication.askQuestion("szczecin");
+end
+
+rule "Offer splyw_dunajcem"
+	salience 10000
+	when
+		Fact(name("max_price"), intValueGreaterThan(500))
+		Fact(name("canoeing"), value(true))
+		not Fact(name("exotic"), value(true))
+	then
+		Communication.askQuestion("splyw_dunajcem");
+end
+
+rule "Offer Slowenia"
+	salience 10000
+	when
+		not Fact(name("poland"), value(true))
+		Fact(name("max_price"), intValueGreaterThan(1000))
+		Fact(name("canoeing"), value(true))
+		not Fact(name("exotic"), value(true))
+	then
+		Communication.askQuestion("slowenia");
+end
+
+rule "Offer Wieden-Bratyslawa"
+	salience 10000
+	when
+		not Fact(name("poland"), value(true))
+		Fact(name("max_price"), intValueGreaterThan(800))
+		Fact(name("sightseeing"), value(true))
+		not Fact(name("exotic"), value(true))
+	then
+		Communication.askQuestion("wieden_bratyslawa");
+end
+
+rule "Offer Broadway"
+	salience 10000
+	when
+		not Fact(name("poland"), value(true))
+		Fact(name("max_price"), intValueGreaterThan(6000))
+		Fact(name("sightseeing"), value(true))
+		not Fact(name("exotic"), value(true))
+		Fact(name("long_flight"), value(true))
+	then
+		Communication.askQuestion("broadway");
 end

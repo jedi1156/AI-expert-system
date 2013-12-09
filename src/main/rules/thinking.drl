@@ -14,6 +14,15 @@ rule "Place Chosen"
 		drools.halt();
 end
 
+rule "You need money dude"
+	salience 20000
+	when
+		Fact(name("max_price"), intValueLessThan(200))
+	then
+		Communication.showMessage("we_need_more_money_dude");
+		drools.halt();
+end
+
 rule "No place Chosen"
 	salience -1
 	when
@@ -26,6 +35,7 @@ end
 
 rule "Ask seaside"
 	when
+		Fact(name("max_price"), intValueGreaterThan(500))
 		not
 		(and
 			Fact(name("mountains"), value(true))
@@ -37,6 +47,7 @@ end
 
 rule "Ask mountains"
 	when
+		Fact(name("max_price"), intValueGreaterThan(400))
 		not
 		(and
 			Fact(name("seaside"), value(true))
@@ -44,19 +55,6 @@ rule "Ask mountains"
 		)
 	then
 		Communication.askQuestion("mountains");
-end
-
-rule "Ask active"
-	when
-	then
-		Communication.askQuestion("active");
-end
-
-rule "Ask objazd"
-	when
-		Fact(name("active"), value(true))
-	then
-		Communication.askQuestion("objazd");
 end
 
 rule "Ask sightseeing"
@@ -71,7 +69,7 @@ end
 
 rule "Ask exotic"
 	when
-		Fact(name("max_price"), intValueGreaterThan(5000))
+		Fact(name("max_price"), intValueGreaterThan(2500))
 	then
 		Communication.askQuestion("exotic");
 end
@@ -85,6 +83,7 @@ end
 
 rule "Ask orient"
 	when
+		Fact(name("max_price"), intValueGreaterThan(5000))
 		not Fact(name("poland"), value(true))
 		not Fact(name("south_america"), value(true))
 		not Fact(name("africa"), value(true))
@@ -102,6 +101,7 @@ end
 
 rule "Ask jungle"
 	when
+		Fact(name("max_price"), intValueGreaterThan(3000))
 		Fact(name("active"), value(true))
 		Fact(name("exotic"), value(true))
 		not Fact(name("poland"), value(true))
@@ -127,18 +127,44 @@ rule "Ask Africa"
 		Communication.askQuestion("africa");
 end
 
+
 rule "Ask poland"
 	when
-		Fact(name("exotic"), value(false))
+		(or
+			Fact(name("exotic"), value(false))
+			Fact(name("max_price"), intValueLessThan(1500))
+		)
 	then
 		Communication.askQuestion("poland");
 end
 
+
+
+
+
+rule "Ask active"
+	when
+		Fact(name("max_price"), intValueGreaterThan(400))
+	then
+		Communication.askQuestion("active");
+end
+
+rule "Ask objazd"
+	when
+		Fact(name("max_price"), intValueGreaterThan(600))
+		Fact(name("active"), value(true))
+	then
+		Communication.askQuestion("objazd");
+end
+
+
 rule "Ask surfing"
 	salience 1
 	when
+		Fact(name("max_price"), intValueGreaterThan(1500))
 		Fact(name("active"), value(true))
 		Fact(name("seaside"), value(true))
+		not Fact(name("objazd"), value(true))
 	then
 		Communication.askQuestion("surfing");
 end
@@ -147,8 +173,11 @@ end
 rule "Ask climbing"
 	salience 1
 	when
+		Fact(name("max_price"), intValueGreaterThan(500))
 		Fact(name("active"), value(true))
 		Fact(name("mountains"), value(true))
+		not Fact(name("objazd"), value(true))
+		not Fact(name("skiing"), value(true))
 	then
 		Communication.askQuestion("climbing");
 end
@@ -156,10 +185,40 @@ end
 rule "Ask skiing"
 	salience 1
 	when
+		Fact(name("max_price"), intValueGreaterThan(700))
 		Fact(name("active"), value(true))
 		Fact(name("mountains"), value(true))
+		not Fact(name("objazd"), value(true))
 	then
 		Communication.askQuestion("skiing");
+end
+
+rule "Ask water_skiing"
+	salience 1
+	when
+		(or
+			Fact(name("skiing"), value(true))
+			Fact(name("mountains"), value(false))
+		)
+		Fact(name("active"), value(true))
+		Fact(name("seaside"), value(true))
+		not Fact(name("objazd"), value(true))
+		not Fact(name("climbing"), value(true))
+		not Fact(name("sightseeing"), value(true))
+	then
+		Communication.askQuestion("water_skiing");
+end
+
+rule "Ask canoeing"
+	salience 1
+	when
+		Fact(name("active"), value(true))
+		not Fact(name("objazd"), value(true))
+		not Fact(name("sightseeing"), value(true))
+		not Fact(name("skiing"), value(true))
+		not Fact(name("climbing"), value(true))
+	then
+		Communication.askQuestion("canoeing");
 end
 
 rule "Ask long_flight"
@@ -168,6 +227,7 @@ rule "Ask long_flight"
 	then
 		Communication.askQuestion("long_flight");
 end
+
 
 
 

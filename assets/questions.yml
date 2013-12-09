@@ -34,6 +34,12 @@ mountains:
 skiing:
   type: boolean
   message: "Masz ochotę na narty?"
+water_skiing:
+  type: boolean
+  message: "Czy masz ochotę na narty wodne?"
+canoeing:
+  type: boolean
+  message: "Co powiesz na spływ?"
 climbing:
   type: boolean
   message: "Co powiesz na wspinaczkę?"
@@ -107,10 +113,35 @@ taghazout:
   message: "Proponujemy Taghazout w Maroku, w sam raz dla surferów!"
 chiny:
   type: choice
-  message: ""
+  message: "Zobacz Wielki Mur Chiński!"
 nippon:
   type: choice
-  message: "Proponujemy niezapomnianą wyprawę do Japonii"
+  message: "Proponujemy niezapomnianą wyprawę do Japonii!"
 egipt:
   type: choice
-  message: ""
+  message: "Wygrzej się na egipskiej plaży i zobacz starożytne piramidy!"
+poznan:
+  type: choice
+  message: "Opcja dla skąpych: weekend w Poznaniu"
+szczecin:
+  type: choice
+  message: "Narty wodne w Szczecinie"
+madryt:
+  type: choice
+  message: "Zwiedzanie Madrytu i okolicznych miejscowości"
+marbella:
+  type: choice
+  message: "Luksusy i narty wodne w Hiszpańskiej Marbelli!"
+slowenia:
+  type: choice
+  message: "Oferujemy spływ po wzburzonych Słoweńskich rzekach!"
+splyw_dunajcem:
+  type: choice
+  message: "Świeże powietrze Szczawnicy i spływ Dunajcem, co Ty na to?"
+wieden_bratyslawa:
+  type: choice
+  message: "Oferujemy Tobie wycieczkę po Bratysłwie i Wiedniu, co Ty na to?"
+broadway:
+  type: choice
+  message: "Jedyna taka oferta: tydzień w Nowym Yorku, zwiedzanie miasta i bilety na przedstawienie na Broadway'u!"
+
