@@ -83,6 +83,11 @@ rule "Ask orient"
 		Fact(name("exotic"), value(true))
 	then
 		Communication.askQuestion("orient");
+
+rule "Ask max price"
+	when
+	then
+		Communication.askQuestion("max_price");
 end
 
 rule "Ask jungle"

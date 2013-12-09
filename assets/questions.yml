@@ -43,11 +43,11 @@ objazd:
 sightseeing:
   type: boolean
   message: "Czy interesują Cię zabytki?"
-
-
-cost:
+max_price:
   type: numeric
-  message: "Podaj maksymalną cenę?"
+  message: "Ile maksymalnie chcesz wydać?"
+
+
 boarding:
   type: multiple
   message: "Jaki typ wyżywienia?"
