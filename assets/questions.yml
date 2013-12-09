@@ -153,4 +153,12 @@ rio:
 kilimandzaro:
   type: choice
   message: "Oferta dla Ciebie: wspinaczka na Kilimandżaro!"
-
+sahara:
+  type: choice
+  message: "Wyprawa po krańcach pustyni afrykańskiej!"
+africa_jungle:
+  type: choice
+  message: "Coś dla twardzieli: wyprawa do samego serca afrykańskiej dżungli!"
+tunezja:
+  type: choice
+  message: "Nasza propozycja: spokojne wczasy w Tunezji."

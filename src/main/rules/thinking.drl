@@ -115,7 +115,7 @@ end
 
 rule "Ask Africa"
 	when
-		Fact(name("exists"), value(true))
+		Fact(name("exotic"), value(true))
 		not Fact(name("south_america"), value(true))
 		not Fact(name("poland"), value(true))
 	then

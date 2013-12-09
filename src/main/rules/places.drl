@@ -358,3 +358,40 @@ rule "Offer Kilimandzaro"
 	then
 		Communication.askQuestion("kilimandzaro");
 end
+
+rule "Offer africa_jungle"
+	salience 10000
+	when
+		not Fact(name("poland"), value(true))
+		Fact(name("max_price"), intValueGreaterThan(3500))
+		Fact(name("africa"), value(true))
+		Fact(name("jungle"), value(true))
+	then
+		Communication.askQuestion("africa_jungle");
+end
+
+rule "Offer sahara"
+	salience 10000
+	when
+		not Fact(name("poland"), value(true))
+		Fact(name("max_price"), intValueGreaterThan(3000))
+		Fact(name("africa"), value(true))
+		Fact(name("active"), value(true))
+	then
+		Communication.askQuestion("sahara");
+end
+
+rule "Offer tunezja"
+	salience 10000
+	when
+		not Fact(name("poland"), value(true))
+		Fact(name("max_price"), intValueGreaterThan(3000))
+		Fact(name("africa"), value(true))
+		(or
+			not Fact(name("active"), value(true))
+			Fact(name("seaside"), value(true))
+		)
+		not( exists Fact(name("tunezja")))
+	then
+		Communication.askQuestion("tunezja");
+end
