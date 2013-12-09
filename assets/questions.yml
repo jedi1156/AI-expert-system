@@ -138,6 +138,9 @@ slowenia:
 splyw_dunajcem:
   type: choice
   message: "Świeże powietrze Szczawnicy i spływ Dunajcem, co Ty na to?"
+amazonka:
+  type: choice
+  message: "Co powiesz na spływ Amazonką i wyprawę do dżungli?"
 wieden_bratyslawa:
   type: choice
   message: "Oferujemy Tobie wycieczkę po Bratysłwie i Wiedniu, co Ty na to?"

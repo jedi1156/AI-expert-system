@@ -5,6 +5,7 @@ import com.agency.*;
 rule "Offer Greece"
 	salience 10000
     when
+			Fact(name("max_price"), intValueGreaterThan(1000))
     	not Fact(name("poland"), value(true))
     	Fact(name("seaside"), value(true))
     	Fact(name("sightseeing"), value(true))
@@ -18,6 +19,7 @@ end
 rule "Offer Turkey"
 	salience 10000
     when
+			Fact(name("max_price"), intValueGreaterThan(1300))
     	not Fact(name("poland"), value(true))
     	Fact(name("seaside"), value(true))
     	Fact(name("sightseeing"), value(true))
@@ -30,6 +32,7 @@ end
 rule "Offer Australia"
 	salience 10000
     when
+			Fact(name("max_price"), intValueGreaterThan(4000))
     	not Fact(name("poland"), value(true))
     	Fact(name("long_flight"), value(true))
     	Fact(name("surfing"), value(true))
@@ -73,6 +76,7 @@ end
 rule "Offer Slowacja"
 	salience 10000
 	when
+		Fact(name("max_price"), intValueGreaterThan(1000))
 		not Fact(name("poland"), value(true))
 		Fact(name("active"), value(false))
 		Fact(name("mountains"), value(true))
@@ -81,65 +85,14 @@ rule "Offer Slowacja"
 		Communication.askQuestion("slowacja");
 end
 
-rule "Offer Chile-Argentyna"
-	salience 10000
-	when
-		not Fact(name("poland"), value(true))
-		not Fact(name("south_america"), value(false))
-		Fact(name("exotic"), value(true))
-		(or
-			(and
-				Fact(name("jungle"), value(true))
-				Fact(name("south_america"), value(true))
-			)
-			(and
-				Fact(name("mountains"), value(true))
-				Fact(name("seaside"), value(true))
-			)
-		)
-		not Fact(name("fear_earthquakes"), value(true))
-	then
-		Communication.askQuestion("chile_argentyna");
-end
-
-rule "Offer narciarstwo i plaza w Chile"
-	salience 10000
-	when
-		not Fact(name("poland"), value(true))
-		Fact(name("exotic"), value(true))
-		not Fact(name("south_america"), value(false))
-		Fact(name("active"), value(true))
-		Fact(name("mountains"), value(true))
-		Fact(name("seaside"), value(true))
-		not Fact(name("fear_earthquakes"), value(true))
-	then
-		Communication.askQuestion("narciarstwo_plaza_andy");
-end
-
-rule "Offer Majowie"
-	salience 10000
-	when
-		not Fact(name("poland"), value(true))
-		Fact(name("south_america"), value(true))
-		(or
-			(and
-				Fact(name("exotic"), value(true))
-				Fact(name("jungle"), value(true))
-			)
-	    Fact(name("sightseeing"), value(true))
-		)
-		not Fact(name("mountains"), value(false))
-		not Fact(name("fear_earthquakes"), value(true))
-	then
-		Communication.askQuestion("majowie");
-end
-
 rule "Offer wspinaczka w Himalajach"
 	salience 10000
 	when
+		Fact(name("max_price"), intValueGreaterThan(10000))
 		not Fact(name("poland"), value(true))
 		Fact(name("climbing"), value(true))
 		not Fact(name("jungle"), value(true))
+		Fact(name("long_flight"), value(true))
 	then
 		Communication.askQuestion("himalaje");
 end
@@ -147,6 +100,7 @@ end
 rule "Offer Alpy"
 	salience 10000
 	when
+		Fact(name("max_price"), intValueGreaterThan(1500))
 		not Fact(name("poland"), value(true))
 		Fact(name("skiing"), value(true))
 		Fact(name("mountains"), value(true))
@@ -160,6 +114,7 @@ rule "Offer poszukiwacze"
 	when
 		not Fact(name("poland"), value(true))
 		Fact(name("exotic"), value(true))
+		Fact(name("long_flight"), value(true))
 		not Fact(name("fear_earthquakes"), value(true))
 		Fact(name("objazd"), value(true))
     Fact(name("sightseeing"), value(true))
@@ -205,7 +160,6 @@ rule "Offer Chiny"
 	when
 		Fact(name("objazd"), value(true))
 		Fact(name("orient"), value(true))
-		Fact(name("long_flight"), value(true))
   	Fact(name("sightseeing"), value(true))
 		not Fact(name("jungle"), value(true))
 	then
@@ -216,7 +170,6 @@ rule "Offer Nippon"
 	salience 10000
 	when
 		Fact(name("orient"), value(true))
-		Fact(name("long_flight"), value(true))
   	Fact(name("sightseeing"), value(true))
 		not Fact(name("jungle"), value(true))
 	then
@@ -277,6 +230,73 @@ rule "Offer splyw_dunajcem"
 		not Fact(name("exotic"), value(true))
 	then
 		Communication.askQuestion("splyw_dunajcem");
+end
+
+rule "Offer amazonka"
+	salience 10000
+	when
+		Fact(name("max_price"), intValueGreaterThan(6000))
+		Fact(name("exotic"), value(true))
+		not Fact(name("jungle"), value(false))
+		not Fact(name("canoeing"), value(false))
+		(or
+			Fact(name("canoeing"), value(true))
+			Fact(name("jungle"), value(true))
+		)
+		Fact(name("south_america"), value(true))
+	then
+		Communication.askQuestion("amazonka");
+end
+
+rule "Offer Chile-Argentyna"
+	salience 10000
+	when
+		not Fact(name("poland"), value(true))
+		Fact(name("south_america"), value(true))
+		(or
+			(and
+				Fact(name("jungle"), value(true))
+				Fact(name("south_america"), value(true))
+			)
+			(and
+				Fact(name("mountains"), value(true))
+				Fact(name("seaside"), value(true))
+			)
+		)
+		not Fact(name("fear_earthquakes"), value(true))
+	then
+		Communication.askQuestion("chile_argentyna");
+end
+
+rule "Offer narciarstwo i plaza w Chile"
+	salience 10000
+	when
+		not Fact(name("poland"), value(true))
+		Fact(name("south_america"), value(true))
+		Fact(name("active"), value(true))
+		Fact(name("mountains"), value(true))
+		Fact(name("seaside"), value(true))
+		not Fact(name("fear_earthquakes"), value(true))
+	then
+		Communication.askQuestion("narciarstwo_plaza_andy");
+end
+
+rule "Offer Majowie"
+	salience 10000
+	when
+		not Fact(name("poland"), value(true))
+		Fact(name("south_america"), value(true))
+		(or
+			(and
+				Fact(name("exotic"), value(true))
+				Fact(name("jungle"), value(true))
+			)
+	    Fact(name("sightseeing"), value(true))
+		)
+		not Fact(name("mountains"), value(false))
+		not Fact(name("fear_earthquakes"), value(true))
+	then
+		Communication.askQuestion("majowie");
 end
 
 rule "Offer Slowenia"
