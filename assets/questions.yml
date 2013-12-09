@@ -147,4 +147,10 @@ wieden_bratyslawa:
 broadway:
   type: choice
   message: "Jedyna taka oferta: tydzień w Nowym Yorku, zwiedzanie miasta i bilety na przedstawienie na Broadway'u!"
+rio:
+  type: choice
+  message: "Oferta dla Ciebie: karnawał w Rio!"
+kilimandzaro:
+  type: choice
+  message: "Oferta dla Ciebie: wspinaczka na Kilimandżaro!"
 

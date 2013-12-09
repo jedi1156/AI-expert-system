@@ -63,6 +63,7 @@ rule "Ask sightseeing"
 			Fact(name("objazd"), value(true))
 			Fact(name("active"), value(false))
 		)
+		not( exists Fact(name("sightseeing")))
 	then
 		Communication.askQuestion("sightseeing");
 end
@@ -105,14 +106,6 @@ end
 rule "Ask South America"
 	when
 		Fact(name("exotic"), value(true))
-		(or
-			Fact(name("canoeing"), value(true))
-			Fact(name("mountains"), value(true))
-			Fact(name("seaside"), value(true))
-		)
-		not(
-			exists Fact(name("south_america"), value(true))
-		)
 		not Fact(name("africa"), value(true))
 		not Fact(name("poland"), value(true))
 		Fact(name("long_flight"), value(true))
@@ -122,7 +115,7 @@ end
 
 rule "Ask Africa"
 	when
-		Fact(name("jungle"), value(true))
+		Fact(name("exists"), value(true))
 		not Fact(name("south_america"), value(true))
 		not Fact(name("poland"), value(true))
 	then
@@ -136,6 +129,7 @@ rule "Ask poland"
 			Fact(name("exotic"), value(false))
 			Fact(name("max_price"), intValueLessThan(1500))
 		)
+		not( exists Fact(name("poland")))
 	then
 		Communication.askQuestion("poland");
 end
@@ -223,6 +217,7 @@ rule "Ask water_skiing"
 		not Fact(name("objazd"), value(true))
 		not Fact(name("climbing"), value(true))
 		not Fact(name("sightseeing"), value(true))
+		not( exists Fact(name("water_skiing")))
 	then
 		Communication.askQuestion("water_skiing");
 end

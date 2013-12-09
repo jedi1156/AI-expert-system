@@ -113,13 +113,13 @@ rule "Offer poszukiwacze"
 	salience 10000
 	when
 		not Fact(name("poland"), value(true))
-		Fact(name("exotic"), value(true))
+		Fact(name("jungle"), value(true))
 		Fact(name("long_flight"), value(true))
 		not Fact(name("fear_earthquakes"), value(true))
 		Fact(name("objazd"), value(true))
     Fact(name("sightseeing"), value(true))
 	then
-		Communication.askQuestion("majowie");
+		Communication.askQuestion("poszukiwacze");
 end
 
 rule "Offer Baleal"
@@ -244,6 +244,7 @@ rule "Offer amazonka"
 			Fact(name("jungle"), value(true))
 		)
 		Fact(name("south_america"), value(true))
+		not( exists Fact(name("amazonka")))
 	then
 		Communication.askQuestion("amazonka");
 end
@@ -264,6 +265,7 @@ rule "Offer Chile-Argentyna"
 			)
 		)
 		not Fact(name("fear_earthquakes"), value(true))
+		not( exists Fact(name("chile_argentyna")))
 	then
 		Communication.askQuestion("chile_argentyna");
 end
@@ -295,6 +297,7 @@ rule "Offer Majowie"
 		)
 		not Fact(name("mountains"), value(false))
 		not Fact(name("fear_earthquakes"), value(true))
+		not( exists Fact(name("majowie")))
 	then
 		Communication.askQuestion("majowie");
 end
@@ -331,4 +334,27 @@ rule "Offer Broadway"
 		Fact(name("long_flight"), value(true))
 	then
 		Communication.askQuestion("broadway");
+end
+
+rule "Offer Rio"
+	salience 10000
+	when
+		not Fact(name("poland"), value(true))
+		Fact(name("max_price"), intValueGreaterThan(4900))
+		Fact(name("south_america"), value(true))
+		Fact(name("long_flight"), value(true))
+		not Fact(name("active"), value(true))
+	then
+		Communication.askQuestion("rio");
+end
+
+rule "Offer Kilimandzaro"
+	salience 10000
+	when
+		not Fact(name("poland"), value(true))
+		Fact(name("max_price"), intValueGreaterThan(3500))
+		Fact(name("africa"), value(true))
+		Fact(name("climbing"), value(true))
+	then
+		Communication.askQuestion("kilimandzaro");
 end
