@@ -9,6 +9,7 @@ rule "Offer Greece"
     	Fact(name("seaside"), value(true))
     	Fact(name("sightseeing"), value(true))
     	Fact(name("objazd"), value(true))
+			not Fact(name("fear_earthquakes"), value(true))
     then
     	Communication.askQuestion("greece");
 end
@@ -19,6 +20,7 @@ rule "Offer Turkey"
     	not Fact(name("poland"), value(true))
     	Fact(name("seaside"), value(true))
     	Fact(name("sightseeing"), value(true))
+			not Fact(name("fear_earthquakes"), value(true))
     then
     	Communication.askQuestion("turkey");
 end
@@ -84,6 +86,7 @@ rule "Offer Chile-Argentyna"
 				Fact(name("seaside"), value(true))
 			)
 		)
+		not Fact(name("fear_earthquakes"), value(true))
 	then
 		Communication.askQuestion("chile_argentyna");
 end
@@ -97,6 +100,7 @@ rule "Offer narciarstwo i plaza w Chile"
 		Fact(name("active"), value(true))
 		Fact(name("mountains"), value(true))
 		Fact(name("seaside"), value(true))
+		not Fact(name("fear_earthquakes"), value(true))
 	then
 		Communication.askQuestion("narciarstwo_plaza_andy");
 end
@@ -114,6 +118,7 @@ rule "Offer Majowie"
 	    Fact(name("sightseeing"), value(true))
 		)
 		not Fact(name("mountains"), value(false))
+		not Fact(name("fear_earthquakes"), value(true))
 	then
 		Communication.askQuestion("majowie");
 end
@@ -142,6 +147,7 @@ rule "Offer poszukiwacze"
 	when
 		not Fact(name("poland"), value(true))
 		Fact(name("exotic"), value(true))
+		not Fact(name("fear_earthquakes"), value(true))
 		Fact(name("objazd"), value(true))
     Fact(name("sightseeing"), value(true))
 	then
@@ -176,6 +182,7 @@ end
 rule "Offer Chiny"
 	salience 10000
 	when
+		Fact(name("objazd"), value(true))
 		Fact(name("orient"), value(true))
 		Fact(name("long_flight"), value(true))
   	Fact(name("sightseeing"), value(true))

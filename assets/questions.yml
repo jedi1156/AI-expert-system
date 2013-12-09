@@ -4,6 +4,9 @@ active:
 exotic:
   type: boolean
   message: "Czy bierzesz pod uwagę miejsca egzotyczne?"
+fear_earthquakes:
+  type: boolean
+  message: "Czy obawiasz się trzęsień ziemi?"
 orient:
   type: boolean
   message: "Czy chcesz wyjechać na daleki wschód?"
@@ -107,7 +110,7 @@ chiny:
   message: ""
 nippon:
   type: choice
-  message: ""
+  message: "Proponujemy niezapomnianą wyprawę do Japonii"
 egipt:
   type: choice
   message: ""

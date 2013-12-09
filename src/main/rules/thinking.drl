@@ -71,8 +71,16 @@ end
 
 rule "Ask exotic"
 	when
+		Fact(name("max_price"), intValueGreaterThan(5000))
 	then
 		Communication.askQuestion("exotic");
+end
+
+rule "Ask fear_earthquakes"
+	when
+		Fact(name("exotic"), value(true))
+	then
+		Communication.askQuestion("fear_earthquakes");
 end
 
 rule "Ask orient"
@@ -81,8 +89,10 @@ rule "Ask orient"
 		not Fact(name("south_america"), value(true))
 		not Fact(name("africa"), value(true))
 		Fact(name("exotic"), value(true))
+		Fact(name("fear_earthquakes"), value(false))
 	then
 		Communication.askQuestion("orient");
+end
 
 rule "Ask max price"
 	when
