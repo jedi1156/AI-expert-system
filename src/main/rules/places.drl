@@ -168,3 +168,38 @@ rule "Offer Taghazout"
 		Communication.askQuestion("taghazout");
 end
 
+
+
+
+
+
+rule "Offer Chiny"
+	salience 10000
+	when
+		Fact(name("orient"), value(true))
+		Fact(name("long_flight"), value(true))
+  	Fact(name("sightseeing"), value(true))
+	then
+		Communication.askQuestion("chiny");
+end
+
+rule "Offer Nippon"
+	salience 10000
+	when
+		Fact(name("orient"), value(true))
+		Fact(name("long_flight"), value(true))
+  	Fact(name("sightseeing"), value(true))
+	then
+		Communication.askQuestion("nippon");
+end
+
+rule "Offer Egipt"
+	salience 10000
+	when
+		not Fact(name("poland"), value(true))
+  	Fact(name("active"), value(false))
+  	Fact(name("seaside"), value(true))
+  	Fact(name("sightseeing"), value(true))
+	then
+		Communication.askQuestion("egipt");
+end

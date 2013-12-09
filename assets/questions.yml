@@ -4,6 +4,9 @@ active:
 exotic:
   type: boolean
   message: "Czy bierzesz pod uwagę miejsca egzotyczne?"
+orient:
+  type: boolean
+  message: "Czy chcesz wyjechać na daleki wschód?"
 jungle:
   type: boolean
   message: "Czy masz ochotę na kontakt z dżunglą?"
@@ -99,3 +102,12 @@ baleal:
 taghazout:
   type: choice
   message: "Proponujemy Taghazout w Maroku, w sam raz dla surferów!"
+chiny:
+  type: choice
+  message: ""
+nippon:
+  type: choice
+  message: ""
+egipt:
+  type: choice
+  message: ""

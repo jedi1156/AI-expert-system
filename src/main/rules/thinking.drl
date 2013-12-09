@@ -75,6 +75,16 @@ rule "Ask exotic"
 		Communication.askQuestion("exotic");
 end
 
+rule "Ask orient"
+	when
+		not Fact(name("poland"), value(true))
+		not Fact(name("south_america"), value(true))
+		not Fact(name("africa"), value(true))
+		Fact(name("exotic"), value(true))
+	then
+		Communication.askQuestion("orient");
+end
+
 rule "Ask jungle"
 	when
 		Fact(name("active"), value(true))
